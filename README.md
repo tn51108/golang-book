@@ -15,5 +15,6 @@
 
 * chapter3-1: Zero Value
 * chapter3-2: New Line
+* chapter3-3: Float
 
 ## Chapter 4
