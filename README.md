@@ -20,3 +20,8 @@
 ## Chapter 4
 
 * chapter4-1: Variables
+* chapter4-2: Prompt-Scanf
+
+## Chapter 5
+
+* chapter5-1: For Loop
