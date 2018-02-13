@@ -26,3 +26,4 @@
 
 * chapter5-1: For Loop
 * chapter5-2: FizzBuzz
+* chapter5-3: Switch Case
