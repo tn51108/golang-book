@@ -35,3 +35,8 @@
 * chapter6-2: Return Function
 * chapter6-3: Multiple Return Values Function
 * chapter6-4: Array Arguments
+
+## Chapter 7
+* chapter7-1: Array
+* chapter7-2: Slice
+* chapter7-3: Slice slice
