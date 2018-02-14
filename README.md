@@ -33,4 +33,5 @@
 
 * chapter6-1: Function
 * chapter6-2: Return Function
-* chapter6-3: Multiple Return Value Function
+* chapter6-3: Multiple Return Values Function
+* chapter6-4: Array Arguments
