@@ -42,3 +42,9 @@
 * chapter7-3: Slice slice
 * chapter7-4: Copy Slice
 * chapter7-5: Make Map
+* chapter7-6: Delete Array
+* chapter7-7: Return Value of Array
+* chapter7-8: For range array
+* chapter7-9: For range slice
+* chapter7-10: Map
+* chapter7-11: Range String
