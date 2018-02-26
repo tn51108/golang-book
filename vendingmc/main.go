@@ -8,6 +8,7 @@ import (
 
 type vendingMachine struct{
 	insertedMoney int
+	coins map[string]int
 }
 
 func (m vendingMachine) InsertedMoney() int {
@@ -16,6 +17,7 @@ func (m vendingMachine) InsertedMoney() int {
 
 func (m *vendingMachine) InsertCoin(coin string) {
 	//m.insertedMoney = 10	
+	/*
 	if coin == "T" {
 		m.insertedMoney += 10
 	}
@@ -27,7 +29,8 @@ func (m *vendingMachine) InsertCoin(coin string) {
 	}
 	if coin == "O" {
 		m.insertedMoney += 1
-	}
+	}*/
+	m.insertedMoney += m.coins[coin]
 }
 func main() {
 	vm := vendingMachine{}
