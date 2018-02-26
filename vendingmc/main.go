@@ -47,17 +47,19 @@ func (m *vendingMachine) SelectCC() string {
 }
 func  (m *vendingMachine) change(c int) string {
 	var str string
-	if c >= 5 {
-		str += ", F"
-		c -= 5
+	values := [...]int{10, 5, 2, 1}
+	coins := [...]string{"T", "F", "TW", "O"}
+	if c >= values[0] {
+		str += ", " + coins[0]
+		c -= values[0]
 	}
-	if c >= 2 {
-		str += ", TW"
-		c -= 2
+	if c >= values[1] {
+		str += ", " + coins[1]
+		c -= values[1]
 	}
-	if c >= 1 {
-		str += ", O"
-		c -= 1
+	if c >= values[2] {
+		str += ", " + coins[2]
+		c -= values[2]
 	}
 	return str
 }
