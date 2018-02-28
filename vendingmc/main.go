@@ -49,19 +49,19 @@ func  (m *vendingMachine) change(c int) string {
 	var str string
 	values := [...]int{10, 5, 2, 1}
 	coins := [...]string{"T", "F", "TW", "O"}
-	if c >= values[0] {
-		str += ", " + coins[0]
-		c -= values[0]
-	}
-	if c >= values[1] {
-		str += ", " + coins[1]
-		c -= values[1]
-	}
-	if c >= values[2] {
-		str += ", " + coins[2]
-		c -= values[2]
+
+	for i := 0 ; i < len(values); i++ {
+		if c >= values[i] {
+			str += ", " + coins[i]
+			c -= values[i]
+		}
 	}
 	return str
+}
+func (vm *vendingMachine) CoinReturn() string {
+	coins := vm.change(vm.insertedMoney)
+	vm.insertedMoney = 0
+	return coins[2:len(coins)]
 }
 func main() {
 	var coins = map[string]int{"T": 10, "F": 5, "TW": 2, "O": 1}
@@ -89,4 +89,6 @@ func main() {
 	// Inserted Money: 2
 	can = vm.SelectCC()
 	fmt.Println(can)
+	coin := vm.CoinReturn()
+	fmt.Println(coin)
 }
