@@ -19,23 +19,29 @@ func main()  {
 func order(volumn int) (container []string) {
 	for i := 1; i <= volumn; i++ {
 		//casier receive order
-		coffee := receiveOrder(i)
-		c := make(chan int)
-		coffee = brew(coffee)
-		container = append(container, serve(coffee))
+		casiers := make(chan string, 3)
+		go casier(casiers)
+		coffee := fmt.Sprintf("order: %d", i)
+
+		//barista brew coffe
+		baristas := make(chan string, 1)
+		go barista(baristas)
+		coffee = fmt.Sprintf("%s %s", coffee, "espresso")
+
+		//waiter serve coffee
+		waiters := make(chan string, 1)
+		waiter(waiters)
+		container = append(container, fmt.Sprintf("%s %s", coffee, "ready :)"))
 	}
 	return
 }
 
-func receiveOrder(number int) string {
+func casier(casiers chan<- string)  {
 	time.Sleep(5 * time.Millisecond)
-	return fmt.Sprintf("order: %d", number)
 }
-func brew(order chan<- string) string {
+func barista(baristas chan<- string)  {
 	time.Sleep(100 * time.Millisecond)
-	return fmt.Sprintf("%s %s", coffee, "espresso")
 }
-func serve(cofee string) string {
+func waiter(waiters chan<- string)  {
 	time.Sleep(5 * time.Millisecond)
-	fmt.Sprintf("%s %s", coffee, "ready :)")
 }
