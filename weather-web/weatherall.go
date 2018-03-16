@@ -6,14 +6,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func HomePageHandle(w http.ResponseWriter, r *http.Request)  {
+func HomePageAllHandle(w http.ResponseWriter, r *http.Request)  {
 	//city := r.URL.Query().Get("city")
 	vmux := mux.Vars(r)
 	city := vmux["city"]
-	if city == "" {
-		city = "null"
-	}
-	fmt.Fprintf(w, "Weather, %s!", city + " 14C shower rain")
+	fmt.Fprintf(w, "Weather, %s!", city + "\n Hobart 14C shower rain \n New York 0C broken clouds \n Kupang 20C clear sky \n Nairobi 16C moderate rain \n Bangkok 33C few clouds")	
+	
 }
 
 /*
@@ -27,7 +25,6 @@ func NewRouter() http.Handler {
 func main()  {
 	
 	r := mux.NewRouter()
-	r.HandleFunc("/weather/{city}", HomePageHandle).Methods("GET")
-	//r.HandleFunc("/weather/all", HomePageAllHandle).Methods("GET")
+	r.HandleFunc("/weather/{city}", HomePageAllHandle).Methods("GET")
 	http.ListenAndServe(":3000", r)
 }
