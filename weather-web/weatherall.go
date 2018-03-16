@@ -10,8 +10,11 @@ func HomePageAllHandle(w http.ResponseWriter, r *http.Request)  {
 	//city := r.URL.Query().Get("city")
 	vmux := mux.Vars(r)
 	city := vmux["city"]
-	fmt.Fprintf(w, "Weather, %s!", city + "\n Hobart 14C shower rain \n New York 0C broken clouds \n Kupang 20C clear sky \n Nairobi 16C moderate rain \n Bangkok 33C few clouds")	
-	
+	fmt.Fprintln(w, "Weather,", city + "\nHobart 14C shower rain")	
+	fmt.Fprintln(w, "New York 0C broken clouds")
+	fmt.Fprintln(w, "Kupang 20C clear sky")
+	fmt.Fprintln(w, "Nairobi 16C moderate rain")
+	fmt.Fprintln(w, "Bangkok 33C few clouds")
 }
 
 /*
